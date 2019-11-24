@@ -29,19 +29,23 @@ complete <- function(directory,id=1:332){
     #read file i
     file_read <- read.csv(dir_file_selection[i])
     
+    # select first row to get the ID value of the file
     file_first_row <- file_read[1,]
     
+    # select id value
     id_file <- select(file_first_row,ID)
     
+    #Determine complete observations in the file
     complete_obs <-complete.cases(file_read)
     
-    num_complete <- sum(complete_obs)
+    # count number of complete observations
+    nobs <- sum(complete_obs)
     
-    relevant_cols <-cbind(id_file,num_complete)
+    # combine two relevant columns
+    relevant_cols <-cbind(id_file,nobs)
     
+    #append data to empty dataframe
     all_complete_data <-rbind(all_complete_data,relevant_cols)
-    
-    
     
   }
   #print(id_file)
