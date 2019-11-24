@@ -39,7 +39,7 @@ complete <- function(directory,id=1:332){
     
     relevant_cols <-cbind(id_file,num_complete)
     
-    all_complete_data <-rbind(relevant_cols,all_complete_data)
+    all_complete_data <-rbind(all_complete_data,relevant_cols)
     
     
     
